@@ -1,0 +1,15 @@
+---
+- hosts: servers
+  remote_user: root
+  vars:
+    filename: playerbooktest.txt
+
+  tasks:
+    - name: create new file
+      file: name=/tmp/playerbooktest.txt state=touch
+    - name: add information to this file
+      shell: echo 'this is a test info' > /tmp/playerbooktest.txt
+    - name: show file info
+      shell: cat /tmp/playerbooktest.txt
+    - name: delete this file
+      file: name=/tmp/playerbooktest.txt state=absent
