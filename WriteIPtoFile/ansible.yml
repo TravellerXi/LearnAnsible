@@ -1,0 +1,7 @@
+---
+- hosts: servers
+  remote_user: root
+
+  tasks:
+    - name: add information to this file
+      shell: /usr/bin/env python3 /tmp/main.py {{ansible_eth0['ipv4']['address']}}
